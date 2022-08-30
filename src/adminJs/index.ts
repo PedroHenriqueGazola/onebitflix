@@ -2,12 +2,14 @@ import AdminJs from "adminJs";
 import AdminJsExpress from "@adminjs/express";
 import AdminJsSequelize from "@adminjs/sequelize";
 import { sequeize } from "../database";
+import { adminJsResources } from "./resources";
 
 AdminJs.registerAdapter(AdminJsSequelize);
 
 export const adminJs = new AdminJs({
     databases: [sequeize],
     rootPath: '/admin',
+    resources: adminJsResources,
     branding: {
         companyName: 'OneBitFlix',
         logo: '/logoOnebitflix.svg',
@@ -28,7 +30,7 @@ export const adminJs = new AdminJs({
               hoverBg: '#151515',
           }
         }
-      }
+    },
 })
 
 export const adminJsRouter = AdminJsExpress.buildRouter(adminJs)
