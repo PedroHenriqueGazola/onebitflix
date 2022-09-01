@@ -1,13 +1,13 @@
 import AdminJs from "adminJs";
 import AdminJsExpress from "@adminjs/express";
 import AdminJsSequelize from "@adminjs/sequelize";
-import { sequeize } from "../database";
+import { sequelize } from "../database";
 import { adminJsResources } from "./resources";
 
 AdminJs.registerAdapter(AdminJsSequelize);
 
 export const adminJs = new AdminJs({
-    databases: [sequeize],
+    databases: [sequelize],
     rootPath: '/admin',
     resources: adminJsResources,
     branding: {
