@@ -1,4 +1,4 @@
-import { ResourceOptions } from "adminjs";
+import { ResourceOptions } from "adminJs";
 
 export const categoryResourceOptions: ResourceOptions = {
     navigation: 'Catálogo',
