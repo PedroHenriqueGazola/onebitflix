@@ -1,4 +1,4 @@
-import { ResourceWithOptions } from "adminJs";
+import { ResourceWithOptions } from "adminjs";
 import { Category, Course, Episode, User } from "../../models";
 import { categoryResourceOptions } from "./category";
 import { courseResourceFeatures, courseResourceOptions } from "./course";

@@ -1,4 +1,4 @@
-import { ResourceOptions } from "adminJs";
+import { ResourceOptions } from "adminjs";
 
 const userResourceOptions: ResourceOptions = {
   navigation: 'Administração',
