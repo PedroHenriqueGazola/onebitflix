@@ -13,6 +13,17 @@ export const coursesController = {
             }
         }
     },
+    //GET /courses/newest
+    newest: async(req: Request, res: Response) => {
+        try {
+            const newestCourses = await courseService.getTopTenNewestCourses()
+            res.json(newestCourses)
+        } catch (error) {
+            if(error instanceof Error) {
+                return res.status(400).json( {message: error.message})
+            }
+        }
+    },  
 
 
     //GET /courses/:id
