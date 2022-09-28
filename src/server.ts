@@ -18,6 +18,6 @@ app.listen(PORT, () => {
     sequelize.authenticate().then(() => {
         console.log('DB connection sucessful')
     })
-    console.log(`server started sucessfuly at port ${PORT}`)
+    console.log(`Server started sucessfully at port ${PORT}`)
 });
 
