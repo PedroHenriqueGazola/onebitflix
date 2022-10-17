@@ -1,5 +1,5 @@
 import { User } from "../models"
-import { UserCreatrionAttributes } from "../models/user"
+import { UserCreationAttributes } from "../models/user"
 
 export const userService = {
     findByEmail: async(email: string) => {
@@ -11,7 +11,7 @@ export const userService = {
         return user
     },
 
-    create: async(attributes: UserCreatrionAttributes) => {
+    create: async(attributes: UserCreationAttributes) => {
         const user = await User.create(attributes)
         return user
     }

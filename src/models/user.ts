@@ -15,10 +15,10 @@ export interface User {
     role: 'admin' | 'user'
 }
 
-export interface UserCreatrionAttributes extends Optional<User, 'id'> { }
-export interface UserInstance extends Model<User, UserCreatrionAttributes>, User { 
+export interface UserCreationAttributes extends Optional<User, 'id'> { }
+export interface UserInstance extends Model<User, UserCreationAttributes>, User {
     checkPassword: (password: string, callbackfn: CheckPasswordCallback) => void
-}
+  }
 
 export const User = sequelize.define<UserInstance, User>('user', {
     id: {
