@@ -1,4 +1,5 @@
 import express from 'express';
+import { json } from 'stream/consumers';
 import { adminJs, adminJsRouter } from './adminJs';
 import { sequelize } from './database';
 import { router } from './routes';
@@ -6,6 +7,7 @@ import { router } from './routes';
 
 const app = express();
 
+app.use(express.json())
 app.use(express.static('public'))
 //app.use(caminho, rotas)
 app.use(adminJs.options.rootPath, adminJsRouter )
