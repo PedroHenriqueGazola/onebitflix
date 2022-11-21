@@ -31,6 +31,26 @@ export const usersController = {
         }
       }
     },
+    //PUT /accountPassword
+    updatePassword: async(req: AuthenticatedRequest, res: Response) => {
+      const user = req.user!
+      const { currentPassword, newPassword } = req.body
+
+      try {
+        user.checkPassword(currentPassword, async (err, isSame) => {
+          if(err) throw res.status(400).json({ message: err.message})
+          if(!isSame) throw res.status(400).json({ message: 'Senha inválida'})
+        })
+        
+        await userService.updatePassword(user.id, newPassword)
+        return res.status(200).send()
+        
+      } catch (error) {
+        if (error instanceof Error) {
+          return res.status(400).json({ message: error.message })
+        }
+      }
+    },
     // GET /watching
     watching: async (req: AuthenticatedRequest, res: Response) => {
       const { id } = req.user!
