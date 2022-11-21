@@ -1,5 +1,5 @@
 import express from 'express';
-import { json } from 'stream/consumers';
+import  cors  from 'cors';
 import { adminJs, adminJsRouter } from './adminJs';
 import { sequelize } from './database';
 import { router } from './routes';
@@ -7,10 +7,11 @@ import { router } from './routes';
 
 const app = express();
 
+app.use(cors())
 app.use(express.json())
 app.use(express.static('public'))
 //app.use(caminho, rotas)
-app.use(adminJs.options.rootPath, adminJsRouter )
+app.use(adminJs.options.rootPath, adminJsRouter)
 
 app.use(router)
 
